@@ -6,6 +6,7 @@ const myKey = import.meta.env.VITE_TMDB_TOKEN;
 interface MovieHttpResponse {
   results: Movie[];
   page: number;
+  total_pages: number;
 }
 
 interface Params {
@@ -25,7 +26,10 @@ interface Options {
   headers: Headers;
 }
 
-async function fetchMovies(querySearch: string): Promise<MovieHttpResponse> {
+async function fetchMovies(
+  querySearch: string,
+  page: number
+): Promise<MovieHttpResponse> {
   const url = 'https://api.themoviedb.org/3/search/movie';
 
   const options: Options = {
@@ -33,7 +37,7 @@ async function fetchMovies(querySearch: string): Promise<MovieHttpResponse> {
       query: querySearch,
       include_adult: false,
       language: 'en-US',
-      page: 1,
+      page,
     },
     headers: {
       accept: 'application/json',
