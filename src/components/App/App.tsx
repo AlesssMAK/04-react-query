@@ -5,7 +5,7 @@ import { Toaster } from 'react-hot-toast';
 import toast from 'react-hot-toast';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 
-import fetchMovies from '../../services/movieServices';
+import fetchMovies from '../../services/movieService';
 import type { Movie } from '../../types/movie';
 
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
