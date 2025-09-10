@@ -30,7 +30,7 @@ function App() {
 
   const handleSearchBar = (query: string) => {
     setSearch(query.trim());
-    setPage(1);
+    setPage(0);
   };
 
   useEffect(() => {
